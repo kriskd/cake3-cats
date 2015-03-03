@@ -55,6 +55,13 @@ class CatsTable extends Table
                 'message' => 'Format social security as 123-45-6789'
             ])
             ->notEmpty('ssn')
+            // Custom validation for birth_year less than or equal to current year
+            ->add('birth_year', 'custom', [
+                'rule' => function($value, $context) {
+                    return $value <= date('Y');
+                },
+                'message' => 'Year must be less than or equal to '.date('Y')
+            ])
             ->add('birth_year', 'valid', ['rule' => 'numeric'])
             ->requirePresence('birth_year', 'create')
             ->notEmpty('birth_year');
