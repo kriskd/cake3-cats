@@ -23,15 +23,16 @@ class CatsController extends AppController
         $this->set('_serialize', ['cats']);
 
         $cats = TableRegistry::get('Cats');
+
         $heaviest = $cats->find('heaviest')->find('age')->first();
-        //debug($heaviest); exit;
+
         $query = $cats->findByGender('F');
         $heaviestFemale = $query->find('heaviest')->find('age')->first();
-        //debug($heaviestFemale);
-        //exit;
+
         $genderCount = $cats->find('genderCount')->all();
-        //debug($genderCount);
-        $this->set(compact('heaviest', 'heaviestFemale', 'genderCount'));
+        $lightestDead = $cats->find('lightest')->find('dead')->first();
+
+        $this->set(compact('heaviest', 'heaviestFemale', 'genderCount', 'lightestDead'));
     }
 
     /**

@@ -5,6 +5,19 @@
     </ul>
 </div>
 <div class="cats index large-10 medium-9 columns">
+    <h3>Cat Factoids</h3>
+    <dl>
+        <dt>Heaviest</dt>
+        <dd><?php echo $heaviest->name; ?> Age: <?php echo $heaviest->age; ?></dd>
+        <dt>Heaviest Female</dt>
+        <dd><?php echo $heaviestFemale->name; ?> Age: <?php echo $heaviestFemale->age; ?></dd>
+        <?php foreach($genderCount as $count): ?>
+            <dt><?php echo $count->gender; ?> Count</dt>
+            <dd><?php echo $count->gender_count; ?></dd>
+        <?php endforeach; ?>
+        <dt>Lightest Dead</dt>
+        <dd><?php echo $lightestDead->name; ?></dd>
+    </dl>
     <table cellpadding="0" cellspacing="0">
     <thead>
         <tr>
@@ -45,13 +58,4 @@
         <p><?= $this->Paginator->counter() ?></p>
     </div>
 
-    <dl>
-        <dt>Heaviest</dt>
-        <dd><?php echo $heaviest->name; ?> Age: <?php echo $heaviest->age; ?></dd>
-        <dt>Heaviest Female</dt>
-        <dd><?php echo $heaviestFemale->name; ?> Age: <?php echo $heaviestFemale->age; ?></dd>
-        <?php //foreach($genderCount as $count): ?>
-
-        <?php //endforeach; ?>
-    </dl>
 </div>
