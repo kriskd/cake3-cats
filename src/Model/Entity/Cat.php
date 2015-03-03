@@ -24,12 +24,18 @@ class Cat extends Entity
         'birth_year' => true,
     ];
 
+    /**
+     * Format birth_year without thousands comma
+     */
     protected function _getBirthYear($birth_year) {
         return Number::format($birth_year, [
             'pattern' => '####',
         ]);
     }
 
+    /**
+     * Format weight in ounces to pounds and ounces
+     */
     protected function _getReadableWeight() {
         if ($this->weight < 16) {
             return $this->weight . ' ounces';
@@ -37,6 +43,9 @@ class Cat extends Entity
         return floor($this->weight/16) . ' pounds ' . $this->weight%16 . ' ounces';
     }
 
+    /**
+     * Virtual field for age
+     */
     protected function _getAge() {
         return date('Y') - $this->birth_year;
     }
