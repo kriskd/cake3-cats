@@ -382,3 +382,8 @@ pre {
   color: red;
   margin-right: 9px;
 }
+
+dt {
+    float: left;
+    width: 160px;
+}
